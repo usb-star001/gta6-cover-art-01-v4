@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Nights — Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>LEONIDA NIGHTS <span>Cover Studio</span></h1>
+    <p>Turn your crew's photos into a GTA-style movie poster. Photos never leave this device.</p>
+  </div>
+  <nav class="steps" aria-label="Steps">
+    <button type="button" class="step-link" data-target="step-photos">1 · Add Photos</button>
+    <button type="button" class="step-link" data-target="step-caption">2 · Caption</button>
+    <button type="button" class="step-link" data-target="step-export">3 · Export PNG</button>
+  </nav>
+</header>
+<main class="studio">
+  <section class="controls">
+    <div class="panel" id="step-photos">
+      <h2><span class="step-num">1</span> Add photos</h2>
+      <p class="hint">Upload, drag onto the preview, or paste a photo. Click a panel to select it, drag a number chip to swap two panels.</p>
+      <div class="row">
+        <button id="trySamples" type="button" class="primary">Try samples — demo cast</button>
+        <button id="clearAll" type="button">Clear all</button>
+      </div>
+      <div id="slotGrid" class="slots" aria-label="Cast panels"></div>
+      <input id="fileInput" type="file" accept="image/*" hidden>
+    </div>
+    <div class="panel" id="step-caption">
+      <h2><span class="step-num">2</span> Caption</h2>
+      <label>Title <input id="title" type="text" maxlength="24" value="NEON VERDICT"></label>
+      <label>Title style
+        <select id="titleStyle">
+          <option value="stripes">Block stripes</option>
+          <option value="neon">Solid neon</option>
+          <option value="outline">Outline</option>
+        </select>
+      </label>
+      <label>Script subtitle <input id="subtitle" type="text" maxlength="48" value="Every Sunset Has a Price"></label>
+      <label>Subtitle style
+        <select id="subtitleStyle">
+          <option value="script">Script</option>
+          <option value="bold">Bold italic</option>
+          <option value="type">Typewriter</option>
+        </select>
+      </label>
+      <label>Tagline ribbon <input id="tagline" type="text" maxlength="64" value="EIGHT CREW · ONE COAST · NO WAY BACK"></label>
+      <label>Review quote <input id="quote" type="text" maxlength="64" value="PURE ADRENALINE IN EVERY FRAME"></label>
+      <label>Quote source <input id="quoteSource" type="text" maxlength="32" value="THE LEONIDA LEDGER"></label>
+      <label>Billing block <input id="billing" type="text" maxlength="90" value="A LEONIDA NIGHTS PICTURE · STARRING YOU AND YOUR CREW"></label>
+      <div class="grid2">
+        <label>Seal <input id="seal" type="text" maxlength="12" value="BEST CAST"></label>
+        <label>Release line <input id="release" type="text" maxlength="20" value="COMING SOON"></label>
+      </div>
+      <label>Edition <input id="edition" type="text" maxlength="10" value="VOL. 1"></label>
+      <h3>Layout</h3>
+      <div id="layoutPicker" class="picks"></div>
+      <h3>Colour grade</h3>
+      <div id="gradePicker" class="picks"></div>
+      <h3>Aspect ratio</h3>
+      <div id="ratioPicker" class="picks"></div>
+    </div>
+    <div class="panel" id="step-export">
+      <h2><span class="step-num">3</span> Export PNG</h2>
+      <div class="row">
+        <button id="exportOne" type="button" class="primary">Export PNG — current size</button>
+        <button id="exportAll" type="button" class="primary">Export all 3 PNGs</button>
+      </div>
+      <div class="row">
+        <button id="undo" type="button">Undo</button>
+        <button id="redo" type="button">Redo</button>
+      </div>
+      <p class="hint">Exports are real PNGs: 1080 x 1080, 1080 x 1350 and 1920 x 1080. Same photos and settings always make the same file.</p>
+      <p id="status" role="status"></p>
+    </div>
+  </section>
+  <section class="preview-wrap">
+    <canvas id="preview" width="864" height="1080" aria-label="Live poster preview"></canvas>
+    <p class="hint">Live preview — this is exactly what exports.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
